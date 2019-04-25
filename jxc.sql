@@ -361,7 +361,7 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'root', '超级管理员', '男', 'pbkdf2:sha256:50000$WuO0dDYG$bc6abb402d99663d82737a36898bc862d672465cece851764078845cb0445f25', '916149179@qq.com', '13000000000', '2018-11-08 19:00:56', NULL, 1, '管理部门', '管理员', 'root', NULL);
+INSERT INTO `user` VALUES (1, 'root', '超级管理员', '男', 'pbkdf2:sha256:50000$WuO0dDYG$bc6abb402d99663d82737a36898bc862d672465cece851764078845cb0445f25', '374935530@qq.com', '13000000000', '2018-11-08 19:00:56', NULL, 1, '管理部门', '管理员', 'root', NULL);
 INSERT INTO `user` VALUES (3, 'limao', '李茂', '男', 'pbkdf2:sha256:50000$vi4b5LR1$b8e5578dcd412bf25e06c924ae11c6f92e5f077fff709660796c93e15a3f679d', 'limao@wesm.com', '18965441256', '2018-11-08 19:30:16', NULL, 0, '临时部', '普通员工', 'staff', NULL);
 
 -- ----------------------------
