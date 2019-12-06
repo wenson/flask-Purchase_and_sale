@@ -7,12 +7,12 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `client`;
 CREATE TABLE `client`  (
   `client_id` int(11) NOT NULL AUTO_INCREMENT,
-  `client_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `client_addre` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `client_phone` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `client_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `client_addre` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `client_phone` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `client_credit` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`client_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of client
@@ -34,13 +34,13 @@ INSERT INTO `client` VALUES (10, '李烈', '山东日照市', '112', 4);
 DROP TABLE IF EXISTS `duty`;
 CREATE TABLE `duty`  (
   `duty_id` int(11) NOT NULL AUTO_INCREMENT,
-  `duty_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `duty_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `duty_addtime` datetime(0) NULL DEFAULT NULL,
   `duty_is_true` tinyint(1) NULL DEFAULT NULL,
   PRIMARY KEY (`duty_id`) USING BTREE,
   UNIQUE INDEX `duty_name`(`duty_name`) USING BTREE,
   INDEX `ix_duty_duty_addtime`(`duty_addtime`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of duty
@@ -55,12 +55,12 @@ INSERT INTO `duty` VALUES (4, '部门经理', '2018-11-09 13:10:05', 0);
 DROP TABLE IF EXISTS `goods`;
 CREATE TABLE `goods`  (
   `goods_id` int(11) NOT NULL AUTO_INCREMENT,
-  `goods_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `goods_price` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `goods_intro` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `goods_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `goods_price` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `goods_intro` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`goods_id`) USING BTREE,
   UNIQUE INDEX `goods_name`(`goods_name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of goods
@@ -82,17 +82,17 @@ DROP TABLE IF EXISTS `inwarehouse`;
 CREATE TABLE `inwarehouse`  (
   `inwarehouse_id` int(11) NOT NULL AUTO_INCREMENT,
   `inwarehouse_count` int(11) NULL DEFAULT NULL,
-  `inwarehouse_price` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `inwarehouse_price` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `inwarehouse_addtime` datetime(0) NULL DEFAULT NULL,
-  `inwarehouse_goods` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `inwarehouse_supplier` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `inwarehouse_user_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `inwarehouse_num` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `inwarehouse_goods` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `inwarehouse_supplier` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `inwarehouse_user_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `inwarehouse_num` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`inwarehouse_id`) USING BTREE,
   INDEX `ix_inwarehouse_inwarehouse_addtime`(`inwarehouse_addtime`) USING BTREE,
   INDEX `inwarehouse_ibfk_1`(`inwarehouse_num`) USING BTREE,
   CONSTRAINT `inwarehouse_ibfk_1` FOREIGN KEY (`inwarehouse_num`) REFERENCES `purchase` (`purchase_num`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of inwarehouse
@@ -110,13 +110,13 @@ INSERT INTO `inwarehouse` VALUES (29, 2, '6598', NULL, '小米Mix3 ', '大雅计
 DROP TABLE IF EXISTS `power`;
 CREATE TABLE `power`  (
   `power_id` int(11) NOT NULL AUTO_INCREMENT,
-  `power_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `power_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `power_addtime` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`power_id`) USING BTREE,
   UNIQUE INDEX `power_name`(`power_name`) USING BTREE,
   INDEX `ix_power_power_addtime`(`power_addtime`) USING BTREE,
   INDEX `ix_power_power_id`(`power_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of power
@@ -130,13 +130,13 @@ INSERT INTO `power` VALUES (2, 'staff', '2018-11-08 19:00:56');
 DROP TABLE IF EXISTS `purchase`;
 CREATE TABLE `purchase`  (
   `purchase_id` int(11) NOT NULL AUTO_INCREMENT,
-  `purchase_num` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `purchase_num` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `purchase_count` int(11) NULL DEFAULT NULL,
-  `purchase_price` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `purchase_price` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `purchase_addtime` datetime(0) NULL DEFAULT NULL,
-  `purchase_goods` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `purchase_supplier` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `purchase_user_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `purchase_goods` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `purchase_supplier` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `purchase_user_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`purchase_id`) USING BTREE,
   UNIQUE INDEX `purchase_num`(`purchase_num`) USING BTREE,
   INDEX `purchase_goods`(`purchase_goods`) USING BTREE,
@@ -146,7 +146,7 @@ CREATE TABLE `purchase`  (
   CONSTRAINT `purchase_ibfk_1` FOREIGN KEY (`purchase_goods`) REFERENCES `goods` (`goods_name`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `purchase_ibfk_2` FOREIGN KEY (`purchase_supplier`) REFERENCES `supplier` (`supplier_name`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `purchase_ibfk_3` FOREIGN KEY (`purchase_user_name`) REFERENCES `user` (`user_name`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of purchase
@@ -165,17 +165,17 @@ DROP TABLE IF EXISTS `returngoods`;
 CREATE TABLE `returngoods`  (
   `returngoods_id` int(11) NOT NULL AUTO_INCREMENT,
   `returngoods_count` int(11) NULL DEFAULT NULL,
-  `returngoods_price` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `returngoods_price` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `returngoods_addtime` datetime(0) NULL DEFAULT NULL,
-  `returngoods_goods` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `returngoods_supplier` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `returngoods_user_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `returngoods_num` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `returngoods_goods` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `returngoods_supplier` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `returngoods_user_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `returngoods_num` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`returngoods_id`) USING BTREE,
   INDEX `returngoods_num`(`returngoods_num`) USING BTREE,
   INDEX `ix_returngoods_returngoods_addtime`(`returngoods_addtime`) USING BTREE,
   CONSTRAINT `returngoods_ibfk_1` FOREIGN KEY (`returngoods_num`) REFERENCES `purchase` (`purchase_num`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of returngoods
@@ -194,7 +194,7 @@ CREATE TABLE `salary`  (
   `salary_subsidy` int(11) NULL DEFAULT NULL,
   `salary_other` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`salary_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for sales
@@ -202,13 +202,13 @@ CREATE TABLE `salary`  (
 DROP TABLE IF EXISTS `sales`;
 CREATE TABLE `sales`  (
   `sales_id` int(11) NOT NULL AUTO_INCREMENT,
-  `sales_num` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `sales_num` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `sales_count` int(11) NULL DEFAULT NULL,
-  `sales_price` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `sales_price` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `sales_addtime` datetime(0) NULL DEFAULT NULL,
-  `sales_user_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `sales_user_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `sales_client_id` int(11) NULL DEFAULT NULL,
-  `sales_goods_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `sales_goods_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`sales_id`) USING BTREE,
   UNIQUE INDEX `sales_num`(`sales_num`) USING BTREE,
   INDEX `sales_user_name`(`sales_user_name`) USING BTREE,
@@ -218,7 +218,7 @@ CREATE TABLE `sales`  (
   CONSTRAINT `sales_ibfk_1` FOREIGN KEY (`sales_user_name`) REFERENCES `user` (`user_name`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `sales_ibfk_2` FOREIGN KEY (`sales_client_id`) REFERENCES `client` (`client_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `sales_ibfk_3` FOREIGN KEY (`sales_goods_name`) REFERENCES `goods` (`goods_name`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sales
@@ -234,17 +234,17 @@ DROP TABLE IF EXISTS `sealreturngoods`;
 CREATE TABLE `sealreturngoods`  (
   `sealreturngoods_id` int(11) NOT NULL AUTO_INCREMENT,
   `sealreturngoods_count` int(11) NULL DEFAULT NULL,
-  `sealreturngoods_price` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `sealreturngoods_price` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `sealreturngoods_addtime` datetime(0) NULL DEFAULT NULL,
-  `sealreturngoods_goods` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `sealreturngoods_supplier` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `sealreturngoods_user_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `sealreturngoods_num` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `sealreturngoods_goods` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `sealreturngoods_supplier` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `sealreturngoods_user_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `sealreturngoods_num` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`sealreturngoods_id`) USING BTREE,
   INDEX `sealreturngoods_num`(`sealreturngoods_num`) USING BTREE,
   INDEX `ix_sealreturngoods_sealreturngoods_addtime`(`sealreturngoods_addtime`) USING BTREE,
   CONSTRAINT `sealreturngoods_ibfk_1` FOREIGN KEY (`sealreturngoods_num`) REFERENCES `sales` (`sales_num`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sealreturngoods
@@ -258,13 +258,13 @@ INSERT INTO `sealreturngoods` VALUES (4, 10, '385', NULL, '港荣蒸蛋糕', '3'
 DROP TABLE IF EXISTS `section`;
 CREATE TABLE `section`  (
   `section_id` int(11) NOT NULL AUTO_INCREMENT,
-  `section_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `section_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `section_addtime` datetime(0) NULL DEFAULT NULL,
   `section_is_true` tinyint(1) NULL DEFAULT NULL,
   PRIMARY KEY (`section_id`) USING BTREE,
   UNIQUE INDEX `section_name`(`section_name`) USING BTREE,
   INDEX `ix_section_section_addtime`(`section_addtime`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of section
@@ -281,17 +281,17 @@ DROP TABLE IF EXISTS `stock`;
 CREATE TABLE `stock`  (
   `stock_id` int(11) NOT NULL AUTO_INCREMENT,
   `stock_count` int(11) NULL DEFAULT NULL,
-  `stock_price` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `stock_price` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `stock_addtime` datetime(0) NULL DEFAULT NULL,
-  `stock_goods` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `stock_supplier` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `stock_user_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `stock_num` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `stock_goods` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `stock_supplier` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `stock_user_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `stock_num` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`stock_id`) USING BTREE,
   INDEX `stock_num`(`stock_num`) USING BTREE,
   INDEX `ix_stock_stock_addtime`(`stock_addtime`) USING BTREE,
   CONSTRAINT `stock_ibfk_1` FOREIGN KEY (`stock_num`) REFERENCES `sales` (`sales_num`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of stock
@@ -305,12 +305,12 @@ INSERT INTO `stock` VALUES (4, 10, '385', NULL, '港荣蒸蛋糕', '3', '超级�
 DROP TABLE IF EXISTS `supplier`;
 CREATE TABLE `supplier`  (
   `supplier_id` int(11) NOT NULL AUTO_INCREMENT,
-  `supplier_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `supplier_addre` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `supplier_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `supplier_addre` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `supplier_credit` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`supplier_id`) USING BTREE,
   UNIQUE INDEX `supplier_name`(`supplier_name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of supplier
@@ -331,18 +331,18 @@ INSERT INTO `supplier` VALUES (9, '上海水果电子商务有限公司', '上�
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`  (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_count` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `user_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `user_sex` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `user_pwd` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `user_mail` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `user_phone` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `user_count` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `user_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `user_sex` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `user_pwd` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `user_mail` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `user_phone` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `user_addtime` datetime(0) NULL DEFAULT NULL,
-  `user_photo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `user_photo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `user_ispass` tinyint(1) NULL DEFAULT NULL,
-  `user_section` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `user_duty` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `user_power` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `user_section` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `user_duty` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `user_power` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `user_salary` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`) USING BTREE,
   UNIQUE INDEX `user_count`(`user_count`) USING BTREE,
@@ -356,7 +356,7 @@ CREATE TABLE `user`  (
   CONSTRAINT `user_ibfk_2` FOREIGN KEY (`user_duty`) REFERENCES `duty` (`duty_name`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `user_ibfk_3` FOREIGN KEY (`user_power`) REFERENCES `power` (`power_name`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `user_ibfk_4` FOREIGN KEY (`user_salary`) REFERENCES `salary` (`salary_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
@@ -371,14 +371,14 @@ DROP TABLE IF EXISTS `warehouse`;
 CREATE TABLE `warehouse`  (
   `warehouse_id` int(11) NOT NULL AUTO_INCREMENT,
   `warehouse_goods_num` int(11) NULL DEFAULT NULL,
-  `warehouse_goods_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `warehouse_supplier_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `warehouse_goods_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `warehouse_supplier_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`warehouse_id`) USING BTREE,
   INDEX `warehouse_goods_name`(`warehouse_goods_name`) USING BTREE,
   INDEX `warehouse_supplier_name`(`warehouse_supplier_name`) USING BTREE,
   CONSTRAINT `warehouse_ibfk_1` FOREIGN KEY (`warehouse_goods_name`) REFERENCES `goods` (`goods_name`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `warehouse_ibfk_2` FOREIGN KEY (`warehouse_supplier_name`) REFERENCES `supplier` (`supplier_name`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of warehouse
