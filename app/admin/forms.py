@@ -201,7 +201,8 @@ class addsuppliers(FlaskForm):
             DataRequired("请选择供应商级别！")
         ],
         coerce=int,
-        choices=[(0, "供应商级别"), (1, "一星"), (2, "二星"), (3, "三星"), (4, "四星"), (5, "五星")],
+        choices=[(0, "供应商级别"), (1, "一星"), (2, "二星"),
+                 (3, "三星"), (4, "四星"), (5, "五星")],
         description="供应商级别",
         render_kw={
             "class": "contrller",
@@ -239,6 +240,8 @@ class suppliersserach(FlaskForm):
     )
 
 # 采购进货单搜索
+
+
 class purchsearch(FlaskForm):
     goods_name = StringField(
         description="请输入货物名称",
@@ -297,6 +300,8 @@ class returnordersearch(FlaskForm):
         }
     )
 # 商品信息单搜索
+
+
 class goodssearch(FlaskForm):
     goods_name = StringField(
         description="商品名称查询",
@@ -317,6 +322,8 @@ class goodssearch(FlaskForm):
     )
 
 # 添加商品名
+
+
 class addgoodsname(FlaskForm):
     name = StringField(
         label='商品名',
@@ -370,6 +377,7 @@ class addgoodsname(FlaskForm):
 # 添加订单
 goodsall = goods.query.all()
 
+
 class increasePurchaseOrders(FlaskForm):
     goods_name = SelectField(
         label="货物名称",
@@ -408,6 +416,7 @@ class increasePurchaseOrders(FlaskForm):
             DataRequired("请选择供应商名称！")
         ],
         coerce=int,
+        choices=[],
         description="供应商名称",
         render_kw={
             "class": "form-control",
@@ -419,7 +428,9 @@ class increasePurchaseOrders(FlaskForm):
         validators=[
             DataRequired("请选择供业务员名称！")
         ],
+
         coerce=int,
+        choices=[],
         description="业务员名称",
         render_kw={
             "class": "form-control",
@@ -469,6 +480,8 @@ class salesorderssearch(FlaskForm):
 # 添加销售订单
 
 warehouses = {1: "1"}
+
+
 class addsaleorder(FlaskForm):
     goods_name = SelectField(
         label="货物名称",
@@ -817,6 +830,8 @@ class outWarehousingsearch(FlaskForm):
     )
 
 # 添加部门
+
+
 class addsection(FlaskForm):
     name = StringField(
         label='部门名',
@@ -842,6 +857,8 @@ class addsection(FlaskForm):
     )
 
 # 添加职务
+
+
 class adddutys(FlaskForm):
     name = StringField(
         label='职务名',
@@ -912,6 +929,7 @@ class powerss(FlaskForm):
 dutys = {1: 5}
 sections = {"p": 5}
 
+
 class bumens(FlaskForm):
     account = SelectField(
         label="请选择用户名",
@@ -960,6 +978,8 @@ class bumens(FlaskForm):
     )
 
 # 修改密码
+
+
 class alertpasswd(FlaskForm):
     account = StringField(
         label='请输入旧密码',
@@ -1079,6 +1099,8 @@ class wjpasswd(FlaskForm):
     )
 
 # 备份
+
+
 class beifenser(FlaskForm):
     submit = SubmitField(
         "立即备份数据",
@@ -1087,4 +1109,3 @@ class beifenser(FlaskForm):
             "lay-filter": "formDemo",
         }
     )
-
